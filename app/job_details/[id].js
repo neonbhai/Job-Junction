@@ -10,7 +10,7 @@ import { useCallback, useState } from 'react';
 //importing other components 
 import { Company, JobAbout, JobFooter, JobTabs, ScreenHeaderBtn, Specifics } from "../../components";
 import useFetch from "../../hook/useFetch";
-import { COLORS, icons } from '../../constants';
+import { COLORS, icons, SIZES } from '../../constants';
 
 const JobDetails = () => {
     const params = useSearchParams();
