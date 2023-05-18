@@ -36,7 +36,6 @@ const Home = () => {
                     }}
                 >
                     <Welcome />
-
                     <Popularjobs />
                     <Nearbyjobs />
                 </View>

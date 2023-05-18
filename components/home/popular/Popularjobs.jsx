@@ -1,6 +1,8 @@
 import { useRouter } from "expo-router";
 
 import React from "react";
+import { useState } from "react";
+
 import { View, Text, ActivityIndicator } from "react-native";
 
 import styles from "./popularjobs.style";
@@ -15,6 +17,10 @@ const Popularjobs = () => {
     query: "React Developer",
     num_pages: 1,
   });
+
+  const [selectedJob, setSelectedJob] = useState();
+
+  const handleCardPress = (item) => {};
 
   return (
     <View style={styles.container}>
@@ -33,7 +39,13 @@ const Popularjobs = () => {
         ) : (
           <FlatList
             data={data}
-            renderItem={({ item }) => <PopularJobCard item={item} />}
+            renderItem={({ item }) => (
+              <PopularJobCard
+                item={item}
+                selectedJob={selectedJob}
+                handleCardPress={handleCardPress}
+              />
+            )}
             contentContainerStyle={{ columnGap: SIZES.medium }}
             horizontal
           />
