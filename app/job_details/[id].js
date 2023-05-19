@@ -27,6 +27,19 @@ const JobDetails = () => {
 
     const onRefresh = () => {}
 
+    const displayTabContent = () => {
+        switch (activeTab) {
+            case "Qualifications":
+                return <Specifics 
+                    title="Qualifications" 
+                    points={data[0].job_highlights?.qualifications ?? ['N/A']} 
+                />
+            case "About":
+            case "Responsibilities":
+            default: break;
+        }
+    }
+
     return (
         // <Text>awe</Text>
         <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.lightWhite }}
@@ -76,6 +89,8 @@ const JobDetails = () => {
                                 activeTab={activeTab}
                                 setActiveTab={setActiveTab}
                             />
+
+                            {displayTabContent()}
                         </View>
                     )}
                 </ScrollView>
