@@ -85,7 +85,7 @@ const JobDetails = () => {
                     ) : error ? (
                         <Text>Something went wrong</Text>
                     ) : data.length === 0 ? (
-                        <Text>No data</Text>
+                        <Text style={{ flex:1, justifyContent:"center", alignItems: "center" }}>No data Returned</Text>
                     ) : (
                         <View style={{ padding:SIZES.medium, paddingBottom: 100 }}>
                             <Company 
@@ -106,7 +106,9 @@ const JobDetails = () => {
                     )}
                 </ScrollView>
 
-                <JobFooter url={data[0]?.job_google_link ?? 'https://careers.google.com/jobs/results'} />
+                {(data.length !== 0) &&
+                    <JobFooter url={data[0]?.job_google_link ?? 'https://careers.google.com/jobs/results'} />
+                }
             </>
         </SafeAreaView>
     )
