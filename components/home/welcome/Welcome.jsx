@@ -41,7 +41,7 @@ const Welcome = ({ searchTerm, setSearchTerm, handleClick }) => {
         <TouchableOpacity
           style={styles.searchBtn}
           onPress={() => {
-            handleClick;
+            handleClick();
           }}
         >
           <Image
