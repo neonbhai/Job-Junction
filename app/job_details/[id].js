@@ -1,7 +1,7 @@
 // import React from "react";
 
 import { 
-    Text, View, SafeAreaView, ScrollView, ActivityIndicator, RefreshControl 
+    Text, View, SafeAreaView, ScrollView, ActivityIndicator, RefreshControl, Share
 } from 'react-native';
 
 import { Stack, useRouter, useSearchParams } from "expo-router";
@@ -70,6 +70,19 @@ const JobDetails = () => {
                     <ScreenHeaderBtn
                         iconUrl={icons.share}
                         dimension="60%"
+                        handlePress={() => {
+                            try {
+                                const result = Share.share({
+                                    title: "Link to Job",
+                                    message: data[0]?.job_google_link ?? 'https://careers.google.com/jobs/results',
+                                    url: data[0]?.job_google_link ?? 'https://careers.google.com/jobs/results',
+                                    dialogTitle: "Link To Job"
+                                });
+                            } catch (error) {
+                                console.log(error);
+                                //flash error 
+                            }
+                        }}
                     />
                 ),
                 headerTitle: ''
