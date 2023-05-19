@@ -60,6 +60,7 @@ const Welcome = ({ searchTerm, setSearchTerm, handleClick }) => {
               style={styles.tab(activeJobType, item)}
               onPress={() => {
                 setActiveJobType(item);
+                console.log("Active job type set to: " + item);
                 router.push(`/search/${item}`);
               }}
             >
