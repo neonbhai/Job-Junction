@@ -1,4 +1,4 @@
-// import React from "react";
+import React from "react";
 
 import { 
     Text, View, SafeAreaView, ScrollView, ActivityIndicator, RefreshControl, Share
@@ -52,7 +52,6 @@ const JobDetails = () => {
     }
 
     return (
-        // <Text>awe</Text>
         <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.lightWhite }}
         >
             <Stack.Screen options={{
@@ -72,7 +71,7 @@ const JobDetails = () => {
                         dimension="60%"
                         handlePress={() => {
                             try {
-                                const result = Share.share({
+                                Share.share({
                                     title: "Link to Job",
                                     message: data[0]?.job_google_link ?? 'https://careers.google.com/jobs/results',
                                     url: data[0]?.job_google_link ?? 'https://careers.google.com/jobs/results',
